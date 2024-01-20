@@ -34,7 +34,9 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
-
-Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-Route::get('receiver/dashboard', [ReceiverController::class, 'dashboard'])->name('receiver.dashboard');
-Route::get('guest/dashboard', [GuestController::class, 'dashboard'])->name('guest.dashboard');
+/** Admin routes */
+Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->middleware(['auth', 'role:admin'])->name('admin.dashboard');
+/** Receiver routes */
+Route::get('receiver/dashboard', [ReceiverController::class, 'dashboard'])->middleware(['auth', 'role:receiver'])->name('receiver.dashboard');
+/** Guest routes */
+Route::get('guest/dashboard', [GuestController::class, 'dashboard'])->middleware(['auth', 'role:guest'])->name('guest.dashboard');
