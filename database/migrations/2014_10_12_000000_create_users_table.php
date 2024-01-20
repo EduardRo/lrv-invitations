@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
-            $table->enum('role', ['admin', 'business', 'guest'])->default('guest');
+            $table->enum('role', ['admin', 'receiver', 'guest'])->default('guest');
             $table->enum('type', ['individual', 'business'])->default('individual');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('phone');
