@@ -38,3 +38,6 @@ require __DIR__ . '/auth.php';
 
 /** Guest routes */
 Route::get('guest/dashboard', [GuestController::class, 'dashboard'])->middleware(['auth', 'role:guest'])->name('guest.dashboard');
+
+/** Testare Menu concept */
+Route::get('admin/test', [AdminController::class, 'test'])->middleware(['auth', 'role:admin'])->name('test');
